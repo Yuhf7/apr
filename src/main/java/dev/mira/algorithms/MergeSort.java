@@ -87,7 +87,7 @@ public class MergeSort<E> {
         int sizeRight = end - middle;
 
         /*Copy data to temp arrays*/
-        E[] LeftPartArr = copyArray(arr, 0, sizeLeft);
+        E[] LeftPartArr = copyArray(arr, start, sizeLeft);
         E[] RightPartArr = copyArray(arr, middle + 1, sizeRight);
 
         /* Merge the temp arrays */
