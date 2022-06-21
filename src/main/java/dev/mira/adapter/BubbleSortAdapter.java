@@ -18,9 +18,9 @@ public class BubbleSortAdapter implements SortingAlgorithm {
     }
 
     @Override
-    public List<Integer> getList(int[] list) {
+    public List<Integer> getList(int[] list, Comparator<Integer> comparator) {
         BubbleSort<Integer> bubbleSort = new BubbleSort<>(Integer.class);
-        var ret = bubbleSort.bubbleSort(Arrays.stream(list).boxed().toArray(Integer[]::new), Integer::compare);
+        var ret = bubbleSort.bubbleSort(Arrays.stream(list).boxed().toArray(Integer[]::new), comparator);
 
         return Arrays.stream(ret).collect(Collectors.toList());
     }

@@ -1,6 +1,9 @@
 package dev.mira.ui;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 import dev.mira.adapter.SortingAlgorithm;
@@ -11,6 +14,12 @@ import dev.mira.utils.Utils;
  */
 public class US17 implements UserStory {
 
+    private Comparator<Integer> reversed = new Comparator<Integer>() {
+        public int compare(Integer x, Integer y)
+        {
+            return -Integer.compare(x, y);
+        }
+    };
 
     @Override
     public void run()
@@ -27,7 +36,9 @@ public class US17 implements UserStory {
 
                 SortingAlgorithm alg = pickAlg();
 
-                var list = alg.getList(target);
+                var cmp = pickOrder();
+
+                var list = alg.getList(target, cmp);
 
                 Utils.showList(list, "Sorted list:");
 
@@ -41,6 +52,18 @@ public class US17 implements UserStory {
                 return;
             }
         } while (again);
+    }
+
+    public Comparator<Integer> pickOrder()
+    {
+        HashMap<String, Comparator<Integer>> opts = new HashMap<>(2);
+        opts.put("Smallest to Largest", Integer::compare);
+        opts.put("Largest to Smallest", this.reversed);
+
+        String key = (String)
+            Utils.showAndSelectOne(new ArrayList<>(opts.keySet()), "Choose the sorting order:", false);
+
+        return opts.get(key);
     }
 
     public SortingAlgorithm pickAlg()
