@@ -2,8 +2,18 @@ package dev.mira.ui;
 
 public enum US16Adapters {
 
-    BRUTEFORCE("dev.mira.adapter.BruteForceAdapter"),
-    BENCHMARK("dev.mira.adapter.BenchmarkAdapter");
+    BRUTEFORCE("dev.mira.adapter.BruteForceAdapter") {
+        @Override
+        public String toString() {
+            return "Bruteforce Algorithm";
+        }
+    },
+    BENCHMARK("dev.mira.adapter.BenchmarkAdapter") {
+        @Override
+        public String toString() {
+            return "Benchmark Algorithm";
+        }
+    };
 
     private final String classPath;
 

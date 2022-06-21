@@ -55,8 +55,6 @@ public class US16 implements UserStory {
 
                 System.out.println(dto.toString());
 
-                System.out.println(Arrays.toString(dto.getCenterHours()));
-
                 System.out.println();
                 again = Utils.confirm("Again?");
 

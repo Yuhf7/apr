@@ -121,7 +121,7 @@ public class PerformanceDTO {
 
     @Override
     public String toString() {
-        return String.format("List with differences between arriving/leaving clients:\n%s\nContiguous sublist with max Sum:\n%s\nTotal sum: %d\tTime period:%s - %s",
+        return String.format("List with differences between arriving/leaving clients:\n%s\nContiguous sublist with max Sum:\n%s\nTotal sum: %d\tTime period: %s - %s",
                 Arrays.toString(this.diffList),
                 Arrays.toString(this.goalSublist),
                 this.sum, this.startTime.toString(), this.endTime.toString());

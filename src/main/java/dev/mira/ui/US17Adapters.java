@@ -2,8 +2,18 @@ package dev.mira.ui;
 
 public enum US17Adapters {
 
-    BUBBLE("dev.mira.adapter.BubbleSortAdapter"),
-    MERGE("dev.mira.adapter.MergeSortAdapter");
+    BUBBLE("dev.mira.adapter.BubbleSortAdapter") {
+        @Override
+        public String toString() {
+            return "Bubble Sort Algorithm";
+        }
+    },
+    MERGE("dev.mira.adapter.MergeSortAdapter") {
+        @Override
+        public String toString() {
+            return "Merge Sort Algorithm";
+        }
+    };
 
     private final String classPath;
 
