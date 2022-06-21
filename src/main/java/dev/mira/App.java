@@ -17,6 +17,8 @@ public class App {
 
     public static void main(String[] argv)
     {
+        Inputs.getInstance();
+
         int i;
         int argc = argv.length;
 

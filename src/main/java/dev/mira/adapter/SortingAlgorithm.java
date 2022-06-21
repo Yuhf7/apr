@@ -6,4 +6,6 @@ import java.util.List;
 public interface SortingAlgorithm extends Reflectable {
 
     public <E> List<E> getList(List<E> list, Comparator<? extends E> comparator);
+
+    public List<Integer> getList(int[] list);
 }

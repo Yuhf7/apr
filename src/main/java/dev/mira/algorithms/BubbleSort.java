@@ -16,6 +16,11 @@ public class BubbleSort<E> {
                         .getActualTypeArguments()[0];
     }
 
+    public BubbleSort(Class<E> clazz)
+    {
+        this.type = clazz;
+    }
+
     /**
      *
      * @param classType class type

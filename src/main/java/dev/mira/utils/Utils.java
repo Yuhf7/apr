@@ -28,7 +28,7 @@ public class Utils {
         boolean useDefault = confirm("Use one of the default arrays?");
 
         if (useDefault) {
-            List<int[]> defaults = Inputs.getDefaults();
+            List<int[]> defaults = Inputs.getInstance().getDefaults();
             int idx = showAndSelectIndex(defaults, "Choose a default array", false);
 
             return defaults.get(idx);

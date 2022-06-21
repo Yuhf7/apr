@@ -7,6 +7,15 @@ import java.util.ArrayList;
  */
 public class Inputs {
 
+    private ArrayList<int[]> defaults;
+
+    private Inputs()
+    {
+        this.defaults = new ArrayList<>();
+        this.defaults.add(ex1);
+        this.defaults.add(ex2);
+    }
+
     public static int[] ex1 = new int[] {
         242, 194, 241, 92, 53, 27, 74, -75,
         -357, -125, -29, 141, 269, 121, 50,
@@ -24,13 +33,26 @@ public class Inputs {
 
     public static int[] DEFAULT;
 
-    public static ArrayList<int[]> getDefaults()
+    public boolean addArray(int[] array)
     {
-        var lst = new ArrayList<int[]>();
+        return this.defaults.add(array);
+    }
 
-        lst.add(ex1);
-        lst.add(ex2);
+    public ArrayList<int[]> getDefaults()
+    {
+        return this.defaults;
+    }
 
-        return lst;
+    private static Inputs singleton = null;
+
+    public static Inputs getInstance()
+    {
+        if (singleton == null) {
+            synchronized (Inputs.class) {
+                singleton = new Inputs();
+            }
+        }
+
+        return singleton;
     }
 }

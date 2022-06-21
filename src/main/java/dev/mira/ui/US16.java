@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
-import dev.mira.Inputs;
 import dev.mira.adapter.SubsequenceAlgorithm;
 import dev.mira.utils.Utils;
 
@@ -90,33 +89,6 @@ public class US16 implements UserStory {
                  NoSuchMethodException e)
         {
             throw new RuntimeException();
-        }
-    }
-
-
-    public SubsequenceAlgorithm reflect(String algorithm)
-    {
-        String classpath;
-        Class<?> alg;
-
-        // ignore whitespace and make selection case insensitive
-        algorithm = algorithm.strip().toUpperCase();
-
-        try {
-            // illegal arg ex
-            classpath = US16Adapters.valueOf(algorithm).getClassPath();
-
-            alg = Class.forName(classpath);
-
-            // all other ex
-            return (SubsequenceAlgorithm) alg.getDeclaredConstructor().newInstance();
-        } catch (IllegalArgumentException  | ClassNotFoundException |
-                InvocationTargetException | IllegalAccessException |
-                InstantiationException    | NoSuchMethodException e)
-        {
-            throw new RuntimeException(String.format("%s\n%s%s",
-                        "The chosen algorithm does NOT exist!",
-                        "Attempted: ", algorithm));
         }
     }
 

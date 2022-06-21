@@ -17,6 +17,11 @@ public class MergeSort<E> {
                         .getActualTypeArguments()[0];
     }
 
+    public MergeSort(Class<E> clazz)
+    {
+        this.type = clazz;
+    }
+
 
     /**
      *
@@ -93,7 +98,7 @@ public class MergeSort<E> {
         // Initial index of merged subarray array
         int k = start;
         while (i < sizeLeft && j < sizeRight) {
-            if (this.comparator.compare(LeftPartArr[i], RightPartArr[j]) <= 0) {
+            if (this.comparator.compare(LeftPartArr[i], RightPartArr[j]) < 0) {
                 arr[k] = LeftPartArr[i];
                 i++;
             } else {
